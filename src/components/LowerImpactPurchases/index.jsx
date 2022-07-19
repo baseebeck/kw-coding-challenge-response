@@ -3,44 +3,7 @@ import "./styles.scss";
 import { oneMonth, oneYear } from "./data";
 
 export const LowerImpactPurchases = () => {
-  function tabClick() {
-    const monthTab = document.querySelector("#monthTab");
-    const yearTab = document.querySelector("#yearTab");
-    const monthTable = document.querySelector("#monthTable");
-    const yearTable = document.querySelector("#yearTable");
-
-    monthTab.addEventListener("click", () => {
-      if (monthTable.classList.contains("hidden")) {
-        monthTable.classList.remove("hidden");
-        if (monthTab.classList.contains("inactive")) {
-          monthTab.classList.remove("inactive");
-        }
-      }
-      if (!yearTable.classList.contains("hidden")) {
-        yearTable.classList.add("hidden");
-        if (!yearTab.classList.contains("inactive")) {
-          yearTab.classList.add("inactive");
-        }
-      }
-    });
-
-    yearTab.addEventListener("click", () => {
-      if (yearTable.classList.contains("hidden")) {
-        yearTable.classList.remove("hidden");
-        if (yearTab.classList.contains("inactive")) {
-          yearTab.classList.remove("inactive");
-        }
-      }
-      if (!monthTable.classList.contains("hidden")) {
-        monthTable.classList.add("hidden");
-        if (!monthTab.classList.contains("inactive")) {
-          monthTab.classList.add("inactive");
-        }
-      }
-    });
-  }
-
-  // const [tabActive, setTabInactive] = useState(false);
+  const [tabActive, setTabInactive] = useState(false);
 
   return (
     <div className="lower-impact-purchases section">
@@ -52,15 +15,23 @@ export const LowerImpactPurchases = () => {
         {oneYear.length} lower impact companies in the past 12 months.
       </p>
       <div className="tabs">
-        <div id="monthTab" className="tableTab" onClick={tabClick}>
+        <div
+          id="monthTab"
+          className={`tableTab ${tabActive ? "" : "inactive"}`}
+          onClick={() => setTabInactive(!tabActive)}
+        >
           Last 30 Days
         </div>
-        <div id="yearTab" className="tableTab inactive" onClick={tabClick}>
+        <div
+          id="yearTab"
+          className={`tableTab ${!tabActive ? "" : "inactive"}`}
+          onClick={() => setTabInactive(!tabActive)}
+        >
           Last 12 Months
         </div>
       </div>
 
-      <div id="monthTable" className="table">
+      <div id="monthTable" className={`table ${tabActive ? "" : "hidden"}`}>
         {oneMonth.map((d, idx) => {
           return (
             <a
@@ -90,7 +61,7 @@ export const LowerImpactPurchases = () => {
           );
         })}
       </div>
-      <div id="yearTable" className="table hidden">
+      <div id="yearTable" className={`table ${!tabActive ? "" : "hidden"}`}>
         {oneYear.map((d, idx) => {
           return (
             <a
