@@ -36,7 +36,6 @@
     .table {
         display: flex;
         flex-direction: column;
-        max-width: 800px;
         margin: 0 auto;
 
         a {
@@ -48,15 +47,6 @@
             &:first-child {
                 border-top: 2px solid black;
                 margin-top:-2px;
-            }
-        }
-
-        #yearTable {
-            a {
-                &:first-child {
-                    border-top: 2px solid black;
-                    margin-top:-2px;
-                }
             }
         }
     
