@@ -1,0 +1,93 @@
+.section {
+    max-width: 800px;
+
+    p {
+        font-size: 1.3rem;
+    }
+
+    .tabs {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        column-gap: 20px;
+        margin-top: 30px;
+        z-index: 2;
+    
+        .tableTab {
+            font-weight: bold;
+            font-size: 1.3rem;
+            padding: 14px 20px;
+            border: 2px solid rgba(0,0,0,1);
+            border-bottom: 2px solid white;
+            border-radius: 5px 5px 0px 0px;
+            z-index:1;
+
+            &:hover {
+                cursor:pointer;
+            }
+        }
+        .inactive {
+            border: 2px solid rgba(0,0,0,0.3);
+            border-bottom: 2px solid black;
+            color: rgba(0,0,0,0.3);
+        }
+    }
+    
+    .table {
+        display: flex;
+        flex-direction: column;
+        max-width: 800px;
+        margin: 0 auto;
+
+        a {
+            text-decoration: none;
+            color: #000000;
+            &:hover {
+             background-color: rgba(102, 235, 181, 0.1);
+            }
+            &:first-child {
+                border-top: 2px solid black;
+                margin-top:-2px;
+            }
+        }
+
+        #yearTable {
+            a {
+                &:first-child {
+                    border-top: 2px solid black;
+                    margin-top:-2px;
+                }
+            }
+        }
+    
+        .tableRow {
+            display:flex;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            padding: 5px 10px;
+            font-size: 1.3rem;
+        
+            .rowLeft, .rowRight {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                column-gap: 50px;
+        
+            }
+            .rowLeft img {
+                height: 75px;
+                width: 75px;
+            }
+        
+            .companyName, .spent {
+                font-weight: bold;
+            }
+        }
+    }
+    .hidden {
+        display: none;
+    }
+}
+
+
