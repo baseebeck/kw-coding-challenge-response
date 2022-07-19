@@ -1,5 +1,5 @@
 .section {
-    max-width: 800px;
+    padding: 30px;
 
     p {
         font-size: 1.3rem;
@@ -71,6 +71,7 @@
         
             .companyName, .spent {
                 font-weight: bold;
+                text-align: left;
             }
         }
     }
